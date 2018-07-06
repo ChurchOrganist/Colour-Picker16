@@ -1144,7 +1144,8 @@ local function on_tick(event)
     			-- Close the change color UI for the last entity first.
     			create_or_destroy_entity_color_container_and_button_for_player(player, nil, nil, nil, nil)
     			-- If the current opened entity is a registered entity type, create the color container and button.
-    			if current_opened_entity then
+    			if current_opened_entity and player.opened_gui_type == defines.gui_type.entity or player.opened_gui_type == defines.gui_type.trains then
+            -- player.print(current_opened_entity)				
     				local registered_entity_data = entity_types_with_color_picker_data[current_opened_entity.type]
     				if registered_entity_data then
     					-- Check setting.
